@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     Context context = null;
     TextView text;
-    EditText textName;
+    EditText text2;
     EditText fileName;
 
     @Override
@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         context = MainActivity.this;
         text = findViewById(R.id.textView);
         fileName = findViewById(R.id.editText3);
-        textName = findViewById(R.id.editText2);
-        textName.addTextChangedListener(new TextWatcher() {
+        text2 = findViewById(R.id.editText2);
+        text2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                text.setText(textName.getText());
+                text.setText(text2.getText());
             }
         });
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             IS.close();
 
         } catch(IOException e) {
-            System.out.println("Error");
+            System.out.println("Död");
 
         } finally {
             System.out.println("Done");
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void writeFile(View v) {
-        String string = textName.getText().toString();
+        String string = text2.getText().toString();
 
         String file = fileName.getText().toString();
         try {
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             OW.close();
 
         } catch(IOException e) {
-            System.out.println("Error");
+            System.out.println("Död");
 
         } finally {
             System.out.println("Done");
