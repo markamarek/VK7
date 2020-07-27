@@ -21,16 +21,15 @@ public class MainActivity extends AppCompatActivity {
     TextView text;
     EditText text2;
     EditText fileName;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         context = MainActivity.this;
         text = findViewById(R.id.textView);
-        fileName = findViewById(R.id.editText3);
-        text2 = findViewById(R.id.editText2);
+        text2 = findViewById(R.id.editText);
+        fileName = findViewById(R.id.editText2);
         text2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -75,9 +74,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void writeFile(View v) {
-        String string = text2.getText().toString();
 
+        String string = text2.getText().toString();
         String file = fileName.getText().toString();
+
         try {
 
             OutputStreamWriter OW = new OutputStreamWriter(context.openFileOutput(file, Context.MODE_PRIVATE));
